@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="aqua">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SIGE — Système de Gestion des Employés</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .stat-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .stat-card:hover { transform: translateY(-2px); }
+    .emp-card { transition: all 0.2s ease; }
+    .emp-card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+  </style>
+</head>
+<body class="min-h-screen bg-base-200">
+
+  <!-- NAVBAR -->
+  <div class="navbar bg-primary text-primary-content shadow-lg px-4">
+    <div class="flex-1">
+      <a href="/" class="flex items-center gap-2 text-xl font-bold">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+        </svg>
+        SIGE
+      </a>
+    </div>
+    <div class="flex-none gap-2">
+      <span class="badge badge-secondary badge-outline text-xs hidden sm:flex">Django 5.1</span>
+      <a href="/ajouter/" class="btn btn-secondary btn-sm gap-1">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+        </svg>
+        Ajouter
+      </a>
+    </div>
+  </div>
+
+  <!-- MESSAGES -->
+  <div class="container mx-auto px-4 pt-4">
+    {% for message in messages %}
+      <div class="alert alert-success shadow-sm mb-4">
+        <span>{{ message }}</span>
+      </div>
+    {% endfor %}
+  </div>
+
+  <!-- CONTENT -->
+  <main class="container mx-auto px-4 py-6">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer footer-center p-4 bg-base-300 text-base-content mt-10">
+    <p class="text-sm opacity-60">SIGE © 2026 — Réalisé par <strong>Wilson Miguel</strong> · Django + Tailwind CSS + DaisyUI</p>
+  </footer>
+
+</body>
+</html>
